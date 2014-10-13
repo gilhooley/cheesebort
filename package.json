@@ -1,0 +1,23 @@
+{
+  "name": "Cheesebort",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.html",
+  "dependencies": {
+    "express": "^4.9.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bisutun/2014-09-solo.git"
+  },
+  "author": "KAG k.gilhooley@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bisutun/2014-09-solo/issues"
+  },
+  "homepage": "https://github.com/bisutun/2014-09-solo"
+}
