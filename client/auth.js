@@ -1,11 +1,12 @@
 
 // set up yelp authentication
 var yelpAuth = function(location){
-    var auth = {
+  var auth = {
+    // bad idea, but
     consumerKey: "aLyBiK_4T_V3GvoI-Wy__g", 
     consumerSecret: "H9PZJkI40Ee7Br1iH63muixL1B0",
     accessToken: "2FpEW8sOZr9CG2hcmssrrBvXnVoWdGB8",
-    token_secret: "rsYmo7TFkAG1xEFV1w76cGJzDf4"
+    accessTokenSecret: "rsYmo7TFkAG1xEFV1w76cGJzDf4"
     // serviceProvider: { 
     //   signatureMethod: "HMAC-SHA1"
     // }
@@ -21,7 +22,6 @@ var yelpAuth = function(location){
   location.latitude.toString();
   location.longitude.toString();
   var near = location.latitude + ',' + location.longitude;
-  console.log(near);
 
   parameters = [];
   parameters.push(['term', terms]);
@@ -45,23 +45,21 @@ var yelpAuth = function(location){
   parameterMap.oauth_signature = OAuth.percentEncode(parameterMap.oauth_signature);
   console.log(parameterMap);
 
-    // get request
-      $.ajax({
-      'url': message.action,
-      'data': parameterMap,
-      'cache': true,
-      'dataType': 'jsonp',
-      'jsonpCallback': 'cb',
-      'success': function(data, textStats, XMLHttpRequest) {
-        console.log(data);
-        render(data);
-        // var output = prettyPrint(data);
-        // $("body").append(output);
-      },
-      'error': function(error){
-        console.log(error);
-      }
-    });
+  // get request
+  $.get({
+    'url': message.action,
+    'data': parameterMap,
+    'cache': true,
+    'dataType': 'jsonp',
+    'jsonpCallback': 'cb',
+    'success': function(data, textStats, XMLHttpRequest) {
+      console.log(data);
+      render(data);
+    },
+    'error': function(error){
+      console.log(error);
+    }
+});
 
 };
 
@@ -69,11 +67,11 @@ var yelpAuth = function(location){
 var canLocate = locatable();
 var fetch = function(){
   var userLocation = locate(canLocate);
-  if (userLocation.latitude !== 0){
+  if (userLocation !== undefined){
     yelpAuth(userLocation);
   } else {
     console.log('location not found');
-  }
-}
+  }  
+};
 
 
