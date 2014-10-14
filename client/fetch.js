@@ -16,8 +16,9 @@ var locate = function(canLocate){
     // locate user
     navigator.geolocation.getCurrentPosition(       
         deferred.resolve,
-        deferred.reject,
-        options);
+        deferred.reject
+        // options
+        );
     return deferred.promise();
   } else {
     // register disappointment
@@ -42,14 +43,11 @@ var render = function(results){
   // build out with formatting
 };
 
+var callMe = function(){
+  $.when(locate(locatable()))
+  .pipe(setParams)
+  .then(yelpAuth);
+};
 
-  $(function(){
-    $.when(locate())
-    .pipe(setParams)
-    .then(render);
-  });
-
-// var canLocate = locatable();
-// locate(canLocate);
 
 

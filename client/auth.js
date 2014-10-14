@@ -64,14 +64,13 @@ var yelpAuth = function(location){
 };
 
 
-var canLocate = locatable();
-var fetch = function(){
-  var userLocation = locate(canLocate);
-  if (userLocation !== undefined){
-    yelpAuth(userLocation);
-  } else {
-    console.log('location not found');
-  }  
-};
+// var fetch = function(){
+  // var userLocation = locate(canLocate);
+  // if (userLocation !== undefined){
+  //   yelpAuth(userLocation);
+  // } else {
+  //   console.log('location not found');
+  // }  
+// };
 
 
