@@ -67,14 +67,13 @@ var yelpAuth = function(){ // location
 
 
 var fetch = function(){
-  var userLocation = locate(canLocate);
-  if (userLocation !== undefined){
-    yelpAuth(userLocation);
-  } else {
-    console.log('location not found');
-    document.getElementById('results').innerHTML = '<p>Please turn on geolocation.</p>';
-
-  } 
+  // var userLocation = locate(canLocate);
+  // if (userLocation !== undefined){
+  //   yelpAuth(userLocation);
+  // } else {
+  //   console.log('location not found');
+  //   document.getElementById('results').innerHTML = '<p>Please turn on geolocation.</p>';
+  // } 
   // yelpAuth(); 
 };
 

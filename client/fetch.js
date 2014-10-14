@@ -38,45 +38,18 @@ var setParams = function(position){
 
 // render results onto page
 var render = function(results){
+  var inhtml = [];
 
-  document.getElementById('results').innerHTML = 
-
-// LOL
-  '<a href="' + results[0].url + '">' + 
-    '<h2>' + results[0].name + '</h2>' + 
+  for (var i = 0; i < 6; i++){
+   inhtml.push(
+    '<a href="' + results[i].url + '">' + 
+      '<h2>' + results[i].name + '</h2>' + 
     '</a>' +
-  '<p>' + results[0].location.display_address[0] + '</p>' +
-  '<img src="' + results[0].image_url + '"/>' +
+    '<p>' + results[i].location.display_address[0] + '</p>' +
+    '<img src="' + results[i].image_url + '"/>')
+  };
 
-  '<a href="' + results[1].url + '">' + 
-    '<h2>' + results[1].name + '</h2>' +
-    '</a>' +
-  '<p>' + results[1].location.display_address[0] + '</p>' +
-  '<img src="' + results[1].image_url + '"/>' +
-
-
-  '<a href="' + results[2].url + '">' + 
-    '<h2>' + results[2].name + '</h2>' +
-    '</a>' +
-  '<p>' + results[2].location.display_address[0] + '</p>' +
-  '<img src="' + results[2].image_url + '"/>' +
-
-
-  '<a href="' + results[3].url + '">' + 
-    '<h2>' + results[3].name + '</h2>' +
-    '</a>' +
-  '<p>' + results[3].location.display_address[0] + '</p>' +
-  '<img src="' + results[3].image_url + '"/>' +
-
-
-  '<a href="' + results[4].url + '">' + 
-    '<h2>' + results[4].name + '</h2>' +
-    '</a>' +
-  '<p>' + results[4].location.display_address[0] + '</p>' +
-  '<img src="' + results[4].image_url + '"/>' 
-
-  ;
-  
+  document.getElementById('results').innerHTML = inhtml;
 };
 
 var callMe = function(){
