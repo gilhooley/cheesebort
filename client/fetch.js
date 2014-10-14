@@ -1,4 +1,25 @@
 
+// YELP AUTH
+var yelp = require("../node_modules/yelp/index").createClient({
+  consumer_key: "aLyBiK_4T_V3GvoI-Wy__g", 
+  consumer_secret: "H9PZJkI40Ee7Br1iH63muixL1B0",
+  token: "2FpEW8sOZr9CG2hcmssrrBvXnVoWdGB8",
+  token_secret: "rsYmo7TFkAG1xEFV1w76cGJzDf4"
+});
+
+
+var gimme = function (latitude, longitude) {
+  
+  yelp.search({
+    term: "mac & cheese", 
+    location: "San Francisco", 
+    cll: [latitude,longitude] 
+  }, function(error, data) {
+      if (error) { console.log(error); }
+      else { console.log(data.name); }
+    });
+
+};
 
 // LOCATE USER
 var locatable = function(){
@@ -15,11 +36,12 @@ var render = function(results){
 };
 
 // SEND USER'S LOCATION TO YELP ie make GET request
-var getCheez = function(latitude, longitude){
+// var getCheez = function(latitude, longitude){
 
-  render(latitude, longitude);
-  // return array of objects
-};
+//   // return array of objects
+//   gimme(latitude, longitude);
+
+// };
 
 
 
@@ -27,7 +49,7 @@ var locate = function(canLocate){
   if (canLocate) {
     // locate user
     navigator.geolocation.getCurrentPosition(function(position) {
-      getCheez(position.coords.latitude, position.coords.longitude);
+      gimme(position.coords.latitude, position.coords.longitude);
     });
   } else {
     // register my disappointment
@@ -37,7 +59,7 @@ var locate = function(canLocate){
 };
 
 
-
-
 var canLocate = locatable();
 //locate(canLocate);
+
+
