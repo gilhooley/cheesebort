@@ -35,15 +35,6 @@ var render = function(results){
   // build out with formatting
 };
 
-// SEND USER'S LOCATION TO YELP ie make GET request
-// var getCheez = function(latitude, longitude){
-
-//   // return array of objects
-//   gimme(latitude, longitude);
-
-// };
-
-
 
 var locate = function(canLocate){
   if (canLocate) {
