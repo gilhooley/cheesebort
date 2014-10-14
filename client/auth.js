@@ -57,7 +57,7 @@ var yelpAuth = function(location){
       render(data);
     },
     'fail': function(error){
-      console.log(error);
+      console.log('get request failed: ', error);
     }
 });
 
