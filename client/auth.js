@@ -26,8 +26,14 @@ var yelpAuth = function(){ // location
 
   parameters = [];
   parameters.push(['term', terms]);
+  // return only the closest 6 results
+  parameters.push(['limit', 6]);
+  // sort by distance
+  parameters.push(['sort', 1]);
+  // inject user's longitude/latitude
   parameters.push(['ll', near]);
   parameters.push(['callback', 'cb']);
+  // auth
   parameters.push(['oauth_consumer_key', auth.consumerKey]);
   parameters.push(['oauth_consumer_secret', auth.consumerSecret]);
   parameters.push(['oauth_token', auth.accessToken]);
