@@ -1,6 +1,6 @@
 
 // set up yelp authentication
-var yelpAuth = function(location){
+var yelpAuth = function(){ // location
   var auth = {
     // bad idea, but
     consumerKey: "aLyBiK_4T_V3GvoI-Wy__g", 
@@ -22,6 +22,7 @@ var yelpAuth = function(location){
   location.latitude.toString();
   location.longitude.toString();
   var near = location.latitude + ',' + location.longitude;
+  // var near = '37.7835480,-122.4089530';
 
   parameters = [];
   parameters.push(['term', terms]);
@@ -46,17 +47,18 @@ var yelpAuth = function(location){
   console.log(parameterMap);
 
   // get request
-  $.get({
+  $.ajax({
     'url': message.action,
     'data': parameterMap,
+    'method': message.method,
     'cache': true,
     'dataType': 'jsonp',
     'jsonpCallback': 'cb',
-    'done': function(data, textStats, XMLHttpRequest) {
-      console.log(data);
-      render(data);
+    'success': function(data, textStats, XMLHttpRequest) {
+      console.log(data.businesses);
+      render(data.businesses);
     },
-    'fail': function(error){
+    'error': function(error){
       console.log('get request failed: ', error);
     }
 });
@@ -64,13 +66,16 @@ var yelpAuth = function(location){
 };
 
 
-// var fetch = function(){
-  // var userLocation = locate(canLocate);
-  // if (userLocation !== undefined){
-  //   yelpAuth(userLocation);
-  // } else {
-  //   console.log('location not found');
-  // }  
-// };
+var fetch = function(){
+  var userLocation = locate(canLocate);
+  if (userLocation !== undefined){
+    yelpAuth(userLocation);
+  } else {
+    console.log('location not found');
+    document.getElementById('results').innerHTML = '<p>Please turn on geolocation.</p>';
+
+  } 
+  // yelpAuth(); 
+};
 
 

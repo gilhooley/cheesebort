@@ -1,5 +1,5 @@
 
-// LOCATE USER
+// rule user in/out
 var locatable = function(){
   if ("geolocation" in navigator) { return true; } 
   else { return false; }  
@@ -14,7 +14,8 @@ var locate = function(canLocate){
 
   if (canLocate) {
     // locate user
-    navigator.geolocation.getCurrentPosition(       
+    navigator.geolocation.getCurrentPosition(   
+     // jQ promise to handle early return issue    
         deferred.resolve,
         deferred.reject
         // options
@@ -35,12 +36,47 @@ var setParams = function(position){
   return location;
 };
 
-// SEND CHEEZ INFO FROM YELP BACK TO USER
+// render results onto page
 var render = function(results){
 
-  document.getElementById('results').innerText = results;
+  document.getElementById('results').innerHTML = 
 
-  // build out with formatting
+// LOL
+  '<a href="' + results[0].url + '">' + 
+    '<h2>' + results[0].name + '</h2>' + 
+    '</a>' +
+  '<p>' + results[0].location.display_address[0] + '</p>' +
+  '<img src="' + results[0].image_url + '"/>' +
+
+  '<a href="' + results[1].url + '">' + 
+    '<h2>' + results[1].name + '</h2>' +
+    '</a>' +
+  '<p>' + results[1].location.display_address[0] + '</p>' +
+  '<img src="' + results[1].image_url + '"/>' +
+
+
+  '<a href="' + results[2].url + '">' + 
+    '<h2>' + results[2].name + '</h2>' +
+    '</a>' +
+  '<p>' + results[2].location.display_address[0] + '</p>' +
+  '<img src="' + results[2].image_url + '"/>' +
+
+
+  '<a href="' + results[3].url + '">' + 
+    '<h2>' + results[3].name + '</h2>' +
+    '</a>' +
+  '<p>' + results[3].location.display_address[0] + '</p>' +
+  '<img src="' + results[3].image_url + '"/>' +
+
+
+  '<a href="' + results[4].url + '">' + 
+    '<h2>' + results[4].name + '</h2>' +
+    '</a>' +
+  '<p>' + results[4].location.display_address[0] + '</p>' +
+  '<img src="' + results[4].image_url + '"/>' 
+
+  ;
+  
 };
 
 var callMe = function(){
