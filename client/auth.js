@@ -52,11 +52,11 @@ var yelpAuth = function(location){
     'cache': true,
     'dataType': 'jsonp',
     'jsonpCallback': 'cb',
-    'success': function(data, textStats, XMLHttpRequest) {
+    'done': function(data, textStats, XMLHttpRequest) {
       console.log(data);
       render(data);
     },
-    'error': function(error){
+    'fail': function(error){
       console.log(error);
     }
 });
