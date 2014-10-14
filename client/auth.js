@@ -48,7 +48,7 @@ var yelpAuth = function(){ // location
 
   var parameterMap = OAuth.getParameterMap(message.parameters);
   parameterMap.oauth_signature = OAuth.percentEncode(parameterMap.oauth_signature);
-  console.log(parameterMap);
+  // console.log(parameterMap);
 
   // GET request
   $.ajax({
