@@ -1,10 +1,11 @@
 
-// rule user in/out
+// check that user has geolocation enabled
 var locatable = function(){
   if ("geolocation" in navigator) { return true; } 
   else { return false; }  
 };
 
+// locate user
 var locate = function(canLocate){
   var deferred = $.Deferred();
   var location = {
@@ -13,12 +14,11 @@ var locate = function(canLocate){
   };
 
   if (canLocate) {
-    // locate user
+    // use built-in geolocation
     navigator.geolocation.getCurrentPosition(   
      // jQ promise to handle early return issue    
         deferred.resolve,
         deferred.reject
-        // options
         );
     return deferred.promise();
   } else {
@@ -57,6 +57,15 @@ var callMe = function(){
   .pipe(setParams)
   .then(yelpAuth);
 };
+
+
+// test function (disable callMe & setParams,
+// replace in index.html, use alternate definition 
+// of var near in auth.js)
+//
+// var fetch = function(){
+//   yelpAuth(); 
+// };
 
 
 
