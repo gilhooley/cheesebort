@@ -1,21 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-   <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="client/styles.css">
+</head>
 
- 
+<body>
+
 <div class="main"> 
 
   <h1>cheesebort</h1>
-  <button onClick="locate(canLocate);">get me m&c</button>
-  <div>
-    <p id="results"></p>
-  </div>
+
+  <button onClick="fetch()">get me m&c</button>
+
+  <div><p id="results"></p></div>
 
 </div>
 
- <script src="client/require.js"></script>
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+ <script src="http://oauth.googlecode.com/svn/code/javascript/oauth.js"></script>
+ <script src="http://oauth.googlecode.com/svn/code/javascript/sha1.js"></script>
  <script src="client/fetch.js"></script>
+ <script src="client/auth.js"></script>
+
 </body>
+
 </html>
