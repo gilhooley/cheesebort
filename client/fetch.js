@@ -24,6 +24,8 @@ var locate = function(canLocate){
     // register disappointment
     console.error('Please turn on geolocation.')
     document.getElementById('results').innerHTML = '<p>Please turn on geolocation.</p>';
+    location = undefined;
+    return location;
   }
 };
 

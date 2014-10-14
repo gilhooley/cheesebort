@@ -2,9 +2,9 @@
 // set up yelp authentication
 var yelpAuth = function(location){
     var auth = {
-    consumer_key: "aLyBiK_4T_V3GvoI-Wy__g", 
-    consumer_secret: "H9PZJkI40Ee7Br1iH63muixL1B0",
-    token: "2FpEW8sOZr9CG2hcmssrrBvXnVoWdGB8",
+    consumerKey: "aLyBiK_4T_V3GvoI-Wy__g", 
+    consumerSecret: "H9PZJkI40Ee7Br1iH63muixL1B0",
+    accessToken: "2FpEW8sOZr9CG2hcmssrrBvXnVoWdGB8",
     token_secret: "rsYmo7TFkAG1xEFV1w76cGJzDf4"
     // serviceProvider: { 
     //   signatureMethod: "HMAC-SHA1"
@@ -18,7 +18,10 @@ var yelpAuth = function(location){
 
   // set params for get request
   var terms = 'mac+&+cheese';
+  location.latitude.toString();
+  location.longitude.toString();
   var near = location.latitude + ',' + location.longitude;
+  console.log(near);
 
   parameters = [];
   parameters.push(['term', terms]);
@@ -42,6 +45,7 @@ var yelpAuth = function(location){
   parameterMap.oauth_signature = OAuth.percentEncode(parameterMap.oauth_signature);
   console.log(parameterMap);
 
+    // get request
       $.ajax({
       'url': message.action,
       'data': parameterMap,
@@ -65,8 +69,11 @@ var yelpAuth = function(location){
 var canLocate = locatable();
 var fetch = function(){
   var userLocation = locate(canLocate);
-  yelpAuth(userLocation);
+  if (userLocation.latitude !== 0){
+    yelpAuth(userLocation);
+  } else {
+    console.log('location not found');
+  }
 }
-    // get request
 
 
