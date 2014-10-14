@@ -6,6 +6,7 @@ var locatable = function(){
 };
 
 var locate = function(canLocate){
+  var deferred = $.Deferred();
   var location = {
     latitude: 0,
     longitude: 0
@@ -13,13 +14,11 @@ var locate = function(canLocate){
 
   if (canLocate) {
     // locate user
-    navigator.geolocation.getCurrentPosition(function(position) {
-      location.latitude = position.coords.latitude;
-      location.longitude = position.coords.longitude;
-      return location;
-    });
-
-
+    navigator.geolocation.getCurrentPosition(       
+        deferred.resolve,
+        deferred.reject,
+        options);
+    return deferred.promise();
   } else {
     // register disappointment
     console.error('Please turn on geolocation.')
@@ -27,6 +26,12 @@ var locate = function(canLocate){
     location = undefined;
     return location;
   }
+};
+
+var setParams = function(position){
+  location.latitude = position.coords.latitude;
+  location.longitude = position.coords.longitude;
+  return location;
 };
 
 // SEND CHEEZ INFO FROM YELP BACK TO USER
@@ -37,6 +42,12 @@ var render = function(results){
   // build out with formatting
 };
 
+
+  $(function(){
+    $.when(locate())
+    .pipe(setParams)
+    .then(render);
+  });
 
 // var canLocate = locatable();
 // locate(canLocate);
