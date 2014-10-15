@@ -46,8 +46,7 @@ var render = function(results){
     '<a href="' + results[i].url + '">' + 
       '<h2>' + results[i].name + '</h2>' + 
     '</a>' +
-    '<p>' + results[i].location.display_address[0] + '</p>'+ 
-    '<h6>' + results[i].location.cross_streets + '</h6>')
+    '<p>' + results[i].location.display_address[0] + '</p>')
   };
 
   document.getElementById('results').innerHTML = inhtml;
