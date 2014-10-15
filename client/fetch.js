@@ -44,7 +44,7 @@ var render = function(results){
    inhtml.push(
     '<img src="' + results[i].image_url + '"/>' +
     '<a href="' + results[i].url + '">' + 
-      '<h2>' + results[i].name + '</h2>' + 
+      '<h3>' + results[i].name + '</h3>' + 
     '</a>' +
     '<p>' + results[i].location.display_address[0] + '</p>')
   };
