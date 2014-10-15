@@ -6,36 +6,45 @@ body{
 }
 
 h1 {
-  font-size: 9.0vw;
-  color: coral;
+  font-size: 8.0vw;
+  color: cornsilk;
 }
 
 a {
   color: cornsilk;
-  font-family: monospace;
-  /*float: left;*/
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 a:hover{
   color: coral;
 }
 
 p {
-  font-family: sans-serif;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  margin-right: 4.0vw;
+  font-size: 1.5vw;
   /*float:left;*/
 }
 
 img {
   display: inline;
-  /*float:right;*/
+  float:right;
+  margin-right: 3.0vw;
+  margin-left: 3.0vw;
 }
 
 button {
-  font-size: 2.0vw;
-  background-color: #474747;
+  font-size: 3.5vw;
+  background-color: #333333;
   border: none;
   border-radius: 2px;
   color: cornsilk;
   padding: 15px;
+  border-bottom: thin solid cornsilk;
+}
+button:hover{
+  color: coral;
+  border-bottom: thin solid #333333;
+  /*background-color: coral;*/
 }
 
 .main{
@@ -43,7 +52,14 @@ button {
   max-width: 60.0vw;
   padding: 0px 10px 40px 10px;
   margin: 30px auto;
-  border: 1px solid cornsilk;
+  border: 1px solid coral;
   border-radius: 5px;
   text-align: center;
+}
+
+#results {
+  /*float: right;*/
+  margin-right: 4.0vw;
+  margin-top: 8.0vw;
+  text-align: right;
 }
