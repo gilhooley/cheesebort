@@ -42,11 +42,11 @@ var render = function(results){
 
   for (var i = 0; i < 6; i++){
    inhtml.push(
-    '<img src="' + results[i].image_url + '"/>' +
+    '<div><img src="' + results[i].image_url + '"/>' +
     '<a href="' + results[i].url + '">' + 
       '<h3>' + results[i].name + '</h3>' + 
     '</a>' +
-    '<p>' + results[i].location.display_address[0] + '</p>')
+    '<p>' + results[i].location.display_address[0] + '</p></div>')
   };
 
   document.getElementById('results').innerHTML = inhtml;
